@@ -1,0 +1,129 @@
+@model Farhampton.Models.room
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }  
+
+<link rel="stylesheet" href="~/Content/style3.css">
+<title>Add Room</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+
+<style>
+input[type=text], select {
+    width: 25%;
+    padding: 8px 20px;
+    margin: 4px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+
+
+input[type=submit] {
+    width: 25%;
+    background-color: #24ADF6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+    background-color:#6724F6;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 7px;
+}
+</style>
+
+<body>
+
+    <div class="grid flex">
+      <div class="row">
+        <div class="colw_6">
+          <h1 id="title-sub1">Farhampton Hotel</h1>
+          <h2 id="title-sub2">ADD ROOM</h2>
+        </div>
+      </div>
+    </div>
+   
+    
+
+      
+    
+        
+    <div >
+        <center>
+        @using (Html.BeginForm("AddRoom", "Admin"))
+    {
+        <div class="editor-field">
+            @Html.Label("Room ID: ")
+            @Html.EditorFor(model => model.Id)
+            @Html.ValidationMessageFor(model => model.Id)
+        </div>
+    
+        <div class="editor-field">
+            @Html.Label("Type: ")
+            @Html.EditorFor(model => model.type)
+            @Html.ValidationMessageFor(model => model.type)
+        </div>
+
+        <div class="editor-field">
+            @Html.Label("Price: ")
+            @Html.EditorFor(model => model.price)
+            @Html.ValidationMessageFor(model => model.price)
+        </div>
+    
+        <div class="editor-field">
+            
+           <p> @Html.Label("Status:") </p>
+            <p> <label>@Html.RadioButtonFor(m => m.status,"Available")  Available </label> </p>
+            <p> <label>@Html.RadioButtonFor(m => m.status,"Not Available") Not Available </label></p>
+
+            @Html.ValidationMessageFor(model => model.status)
+            
+        </div>
+
+        <div>
+            <input type="submit" value="ADD ROOM"/>
+         </div>
+
+    }
+
+
+
+        </center>
+    </div>
+
+
+
+  <!-- END #section-4 -->
+  <div id="section-credits">
+    <div class="grid">
+      <div class="row paddtop100">
+        <div class="col_12">
+            <h5 class="title-small center">Farhampton Hotel - All rights reserved. </h5>
+        </div>
+        <!-- END col_12 -->
+      </div>
+      <!-- END row --> 
+      
+    </div>
+    <!-- End GRID FLEX -->
+    
+  </div>
+  
+</body>

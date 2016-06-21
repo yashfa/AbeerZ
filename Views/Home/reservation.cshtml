@@ -1,0 +1,140 @@
+@model Farhampton.Models.reservation
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+<title>Sign Up</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style>
+input[type=text], select {
+    width: 25%;
+    padding: 8px 20px;
+    margin: 4px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+input[type=date], select {
+    width: 25%;
+    padding: 8px 20px;
+    margin: 4px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+input[type=submit] {
+    width: 25%;
+    background-color: #24ADF6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+    background-color:#6724F6;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 7px;
+}
+</style>
+<body>
+
+    <div class="grid flex">
+      <div class="row">
+        <div class="colw_6">
+          <h1 id="title-sub1">Farhampton Hotel</h1>
+          <h2 id="title-sub2">RESERVATION</h2>
+        </div>
+        <!-- END colw_6 -->
+        
+       
+        
+      </div>
+      <!-- END row --> 
+    </div>
+    <!-- End GRID FLEX --> 
+    <div class="grid flex16">
+      <div class="row">
+        <h2 class="title-blog wow fadeInUp" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: fadeInUp;">Want to book a room? Fill the form below.</span></h2>
+        <div class="col_4 beta">
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div >
+        <center>
+        @using (Html.BeginForm("reservation", "Home"))
+    {
+    
+        <div class="editor-field">
+            @Html.Label("Full Name")
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+            
+        <div class="editor-field">
+            @Html.Label("Email: ")
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+            
+        <div class="editor-field">
+            @Html.Label("Contact Number: ")
+            @Html.EditorFor(model => model.contact)
+            @Html.ValidationMessageFor(model => model.contact)
+        </div>
+            
+        <div class="editor-field">
+            @Html.Label("Date: ")
+            @Html.TextBoxFor(model => model.date, new { @type = "date" })
+            @Html.ValidationMessageFor(model => model.date)
+        </div>
+    
+        <div>
+           
+            @Html.Label("Room Type")
+            <select name="room">
+                <option value="1">Single Bed Room</option>
+                <option value="2">Double Bed Room</option>
+                <option value="3">Double Round Bed Room</option>
+                <option value="4">Double Single Bed Room</option>
+                <option value="5">Deluxe King Room</option>
+                <option value="6">Deluxe Queen Rooms</option>
+                <option value="6">Terrace Suite</option>
+            </select>   
+        </div>
+        <div> 
+            <center>
+            <input type="submit" value="SUBMIT"/>
+            </center>
+         </div>
+
+    }
+         </center>
+        
+    </div>
+</body>

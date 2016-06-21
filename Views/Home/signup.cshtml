@@ -1,0 +1,149 @@
+@model Farhampton.Models.user
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+<title>Sign Up</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style>
+input[type=text], select {
+    width: 25%;
+    padding: 8px 20px;
+    margin: 4px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+input[type=password], select {
+    width: 25%;
+    padding: 8px 20px;
+    margin: 4px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+input[type=submit] {
+    width: 25%;
+    background-color: #24ADF6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+    background-color:#6724F6;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 7px;
+}
+</style>
+<body>
+
+    <div class="grid flex">
+      <div class="row">
+        <div class="colw_6">
+          <h1 id="title-sub1">Farhampton Hotel</h1>
+          <h2 id="title-sub2">SIGN UP</h2>
+        </div>
+        <!-- END colw_6 -->
+        
+        
+        
+      </div>
+      <!-- END row --> 
+    </div>
+    <!-- End GRID FLEX --> 
+    <div class="grid flex16">
+      <div class="row">
+        <h2 class="title-blog wow fadeInUp" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: fadeInUp;">Fill the form below to register.</span></h2>
+        <div class="col_4 beta">
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div >
+        <center>
+        @using (Html.BeginForm("signup", "Home"))
+    {
+        <div class="editor-field">
+            @Html.Label("Username: ")
+            @Html.EditorFor(model => model.username)
+            @Html.ValidationMessageFor(model => model.username)
+        </div>
+    
+        <div class="editor-field">
+            @Html.Label("Password: ")
+            @Html.PasswordFor(x => x.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+
+           
+            
+        <div class="editor-field">
+            @Html.Label("Email: ")
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+    
+        <div>
+           
+            @Html.Label("Secret Question")
+            <select name="secretques">
+                <option value="1">your first pet name?</option>
+                <option value="2">your best friend's name?</option>
+                <option value="3">your dob?</option>
+                <option value="4">your fear? </option>
+            </select>   
+        </div>
+            
+        <div class="editor-field">
+            @Html.Label("Secret Answer")
+            @Html.EditorFor(model => model.secretans)
+            @Html.ValidationMessageFor(model => model.secretans)
+        </div>
+    
+        <div class="editor-field">
+            @Html.Label("Full Name")
+            @Html.EditorFor(model => model.fullname)
+            @Html.ValidationMessageFor(model => model.fullname)
+        </div>
+
+            
+        
+            
+        <div> 
+            <center>
+            <input type="submit" value="SIGN UP"/>
+            </center>
+         </div>
+
+    }
+         </center>
+        <center>
+        <p>Already a member ? @Html.ActionLink("Login Here", "login") </p>
+        </center>
+    </div>
+</body>
